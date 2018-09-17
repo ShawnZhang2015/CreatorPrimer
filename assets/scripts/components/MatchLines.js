@@ -1,3 +1,6 @@
+/*
+* 连线题组件
+*/
 let TouchGraphics = require('TouchGraphics');
 let _ = require('lodash');
 

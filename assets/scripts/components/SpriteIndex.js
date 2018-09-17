@@ -1,3 +1,6 @@
+/**
+ * 精灵切换
+ */
 
 cc.Class({
     extends: cc.Component,

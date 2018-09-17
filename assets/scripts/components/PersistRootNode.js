@@ -1,4 +1,6 @@
-
+/**
+ * 常驻节点
+ */
 cc.Class({
     extends: cc.Component,
 

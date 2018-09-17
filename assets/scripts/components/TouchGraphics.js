@@ -1,5 +1,3 @@
-let _ = require('lodash');
-
 let TouchGraphics = cc.Class({
     extends: cc.Graphics,
 
@@ -51,7 +49,7 @@ let TouchGraphics = cc.Class({
             return;
         }
       
-        if (_.isEmpty(this._points)) {
+        if (this._points.length === 0) {
             this.moveTo(point.x, point.y);
             this._points.push(point);
             this.node.emit('draw-start', this);
@@ -62,7 +60,7 @@ let TouchGraphics = cc.Class({
             return;
         }
 
-        let last = _.last(this._points);
+        let last = this._points[this._points.length - 1];
         if (last && last.sub(point).mag() < 4) {
             return;
         }

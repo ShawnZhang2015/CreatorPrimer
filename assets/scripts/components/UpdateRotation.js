@@ -1,4 +1,6 @@
-
+/**
+ * 旋转
+ */
 cc.Class({
     extends: cc.Component,
 

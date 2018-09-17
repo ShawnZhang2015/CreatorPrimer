@@ -1,4 +1,7 @@
 
+/**
+ * 颜色切换
+ */
 cc.Class({
     extends: cc.Component,
 

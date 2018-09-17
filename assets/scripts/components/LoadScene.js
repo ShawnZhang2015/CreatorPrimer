@@ -1,4 +1,6 @@
-
+/**
+ * 场景加载
+ */
 cc.Class({
     extends: cc.Component,
 

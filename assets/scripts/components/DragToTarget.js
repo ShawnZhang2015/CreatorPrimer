@@ -1,3 +1,6 @@
+/**
+ * 拖动到目标
+ */
 cc.Class({
     extends: cc.Component,
 

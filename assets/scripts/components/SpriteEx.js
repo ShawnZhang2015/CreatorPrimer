@@ -1,3 +1,6 @@
+/**
+ * 精灵增加 
+ */
 
 let SpriteEx = cc.Class({
     extends: cc.Sprite,

@@ -1,3 +1,6 @@
+/**
+ * 预制件加载
+ */
 cc.Class({
     extends: cc.Component,
     properties: {

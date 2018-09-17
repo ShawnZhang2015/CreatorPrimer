@@ -1,3 +1,6 @@
+/**
+ * 可拖动组件
+ */
 cc.Class({
     extends: cc.Component,
 

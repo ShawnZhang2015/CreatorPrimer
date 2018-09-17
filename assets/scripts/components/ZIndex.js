@@ -1,4 +1,6 @@
-
+/**
+ * 控件节点Z轴
+ */
 cc.Class({
     extends: cc.Component,
 

@@ -1,10 +1,11 @@
+/**
+ * 触摸绘图
+ */
 let TouchGraphics = cc.Class({
     extends: cc.Graphics,
 
     properties: {
         _points: null,
-        //effect: cc.AudioClip,
-        offset: cc.Vec2,
     },
 
     onLoad () {
@@ -40,12 +41,10 @@ let TouchGraphics = cc.Class({
 
     _drawGraphics(location) {
         let point = this.node.convertToNodeSpaceAR(location);
-        //point = point.sub(this.offset ? this.offset : cc.p(0,0));
         let rect = this.node.getBoundingBox();
         rect.origin = cc.v2(0, 0);
 
         if (!rect.contains(this.node.convertToNodeSpace(location))) {
-            cc.log('不在矩形区退出');
             return;
         }
       

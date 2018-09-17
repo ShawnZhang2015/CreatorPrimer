@@ -1,0 +1,21 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "http://www.ixuexie.com/primer/web-mobile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.gugud.com/shawn/CocosCreatorPrimer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-pngmin": "^1.3.0",
+    "grunt-shell": "^2.1.0",
+    "grunt-sync": "^0.8.0"
+  }
+}

@@ -35,6 +35,11 @@
 [CreatorPrimer(13)|组件与节点的本质
 ](https://mp.weixin.qq.com/s?__biz=MzA5MjEwOTI4Ng==&mid=100000505&idx=1&sn=b55013623466c6d711d96dd163f3fc6a&scene=19#wechat_redirect)
 
+[《Cocos Creator基础教程》改版计划！](https://mp.weixin.qq.com/s?__biz=MzA5MjEwOTI4Ng==&mid=100000520&idx=1&sn=1718f15d4adf66f9920ace768ea76a52&scene=19#wechat_redirect)
+
+[CreatorPrimer教程源码&Creator工作流](https://mp.weixin.qq.com/s?__biz=MzA5MjEwOTI4Ng==&mid=100000529&idx=1&sn=f73d3615cfd5e9c7a887e1ab14536153&scene=19#wechat_redirect)
+
+[CreatorPrimer(16)|物理小游戏(开篇)](https://mp.weixin.qq.com/s?__biz=MzA5MjEwOTI4Ng==&mid=100000542&idx=1&sn=24a99c57e2e37fd1ec4609aa0a384ef0&scene=19#wechat_redirect)
 
 ## 关注**奎特尔星球**微信公众号，获取最新动态！
 

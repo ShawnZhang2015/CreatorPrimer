@@ -3,7 +3,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        notifycationName: '',
+        notificationName: '',
         label: cc.Label,
         step: 1,
         score: {
@@ -19,8 +19,8 @@ cc.Class({
 
     onLoad () {
         this.label.string = this.score.toString();
-        if (this.notifycationName) {
-            cc.director.on(this.notifycationName, this.notificationHandle, this);
+        if (this.notificationName) {
+            cc.director.on(this.notificationName, this.notificationHandle, this);
         }
     },
 

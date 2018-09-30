@@ -1,5 +1,9 @@
-
+/**
+ * 
+ */
 cc.Class({
+
+    //依赖刚体组件
     editor: CC_EDITOR && {
         requireComponent: cc.RigidBody,
     },
@@ -11,10 +15,17 @@ cc.Class({
         angularVelocity: 0,
     },
 
+    /**
+     * 获取刚体组件
+     */
     start() {
         this._rigidBody = this.getComponent(cc.RigidBody);
     },
 
+    /**
+     * 给刚体施力，力的参数由组件属性控制
+     * 写这个函数是方便cc.Button组件click属性调用
+     */
     force() {
         let v2 = this._rigidBody.linearVelocity;
         v2.y = this.linearVelocity.y;

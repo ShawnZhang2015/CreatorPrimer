@@ -1,11 +1,7 @@
 
 
 /**
- * 		e_aabbBit = 0,
-		e_pairBit = 0,
-		e_centerOfMassBit = 0,
-		e_jointBit = 0,
-		e_shapeBit = 0,	
+ * 物理引擎管理组件，开启各种重调试
  */
 cc.Class({
     extends: cc.Component,

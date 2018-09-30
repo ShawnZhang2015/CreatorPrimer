@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4059326171875,
-      "y": 0.4059326171875,
+      "x": 0.46758876536481436,
+      "y": 0.46758876536481436,
       "z": 1
     },
     "_quat": {
@@ -97,7 +97,7 @@
         "__id__": 85
       },
       {
-        "__id__": 86
+        "__id__": 87
       }
     ],
     "_prefab": null,
@@ -2209,8 +2209,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 23,
-      "y": 83,
+      "x": -11,
+      "y": -114,
       "z": 0
     },
     "_scale": {
@@ -2938,23 +2938,6 @@
     "_id": "03tg1F7RdHfLMdhgcpH/Ng"
   },
   {
-    "__type__": "e8784mu5l9KLKS+n8blKNQb",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 2
-    },
-    "_enabled": true,
-    "active": true,
-    "aabb": true,
-    "pair": false,
-    "centerOfMass": false,
-    "joint": false,
-    "shape": true,
-    "mouseJoint": true,
-    "_id": "3cnoGwGxFAw7L5bfFCYT7P"
-  },
-  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -2981,13 +2964,7 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 87
-      },
-      {
-        "__id__": 88
-      },
-      {
-        "__id__": 89
+        "__id__": 86
       }
     ],
     "_N$interactable": true,
@@ -3019,25 +2996,28 @@
   },
   {
     "__type__": "cc.ClickEvent",
-    "target": null,
-    "component": "PhysicsVelocity",
-    "handler": "force",
-    "customEventData": ""
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": null,
-    "component": "PhysicsVelocity",
-    "handler": "force",
-    "customEventData": ""
-  },
-  {
-    "__type__": "cc.ClickEvent",
     "target": {
       "__id__": 61
     },
     "component": "PhysicsVelocity",
     "handler": "force",
     "customEventData": ""
+  },
+  {
+    "__type__": "e8784mu5l9KLKS+n8blKNQb",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "active": true,
+    "aabb": true,
+    "pair": true,
+    "centerOfMass": true,
+    "joint": true,
+    "shape": true,
+    "mouseJoint": true,
+    "_id": "3cnoGwGxFAw7L5bfFCYT7P"
   }
 ]

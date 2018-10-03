@@ -41,6 +41,11 @@
 
 [CreatorPrimer(16)|物理小游戏(开篇)](https://mp.weixin.qq.com/s?__biz=MzA5MjEwOTI4Ng==&mid=100000542&idx=1&sn=24a99c57e2e37fd1ec4609aa0a384ef0&scene=19#wechat_redirect)
 
+[CreatorPrimer(17)|物理小游戏(物理组件)](http://mp.weixin.qq.com/s?__biz=MzA5MjEwOTI4Ng==&mid=2247484207&idx=1&sn=616e494e39d95c383c364b4c6c586f84&scene=19#wechat_redirect)
+
+[CreatorPrimer|物理小游戏(物理管理器组件)](https://mp.weixin.qq.com/s?__biz=MzA5MjEwOTI4Ng==&mid=2247484207&idx=1&sn=616e494e39d95c383c364b4c6c586f84&scene=19#wechat_redirect)
+
+
 ## 关注**奎特尔星球**微信公众号，获取最新动态！
 
 ![奎特尔星球](https://github.com/ShawnZhang2015/uikiller/raw/master/WeChat-Official-Accounts.jpg)

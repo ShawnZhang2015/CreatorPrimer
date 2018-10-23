@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4864990234375,
-      "y": 0.4864990234375,
+      "x": 0.5572916666666667,
+      "y": 0.5572916666666667,
       "z": 1
     },
     "_quat": {
@@ -380,7 +380,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 680,
-      "height": 400
+      "height": 554
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -451,10 +451,10 @@
     "_enabled": true,
     "_layoutSize": {
       "__type__": "cc.Size",
-      "width": 300,
-      "height": 200
+      "width": 680,
+      "height": 554
     },
-    "_resize": 0,
+    "_resize": 1,
     "_N$layoutType": 2,
     "_N$padding": 0,
     "_N$cellSize": {
@@ -553,9 +553,6 @@
       "__id__": 5
     },
     "_enabled": true,
-    "content": {
-      "__id__": 7
-    },
     "horizontal": false,
     "vertical": true,
     "inertia": true,
@@ -564,6 +561,12 @@
     "bounceDuration": 0.23,
     "scrollEvents": [],
     "cancelInnerEvents": true,
+    "_N$content": {
+      "__id__": 7
+    },
+    "content": {
+      "__id__": 7
+    },
     "_N$horizontalScrollBar": null,
     "_N$verticalScrollBar": null,
     "_id": "4fmmy/vbBLh5X73PCeNkKD"

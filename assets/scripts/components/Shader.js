@@ -39,6 +39,7 @@ cc.Class({
         if (!this._shaderObject) {
             return;
         }
+        
         CustomMaterial.addShader(this._shaderObject);
         let sprite = this.sprite;
         let params = this._shaderObject.params;
@@ -65,14 +66,5 @@ cc.Class({
         if (this._shaderObject.start) {
             this._shaderObject.start(sprite, material);
         }
-    },
-
-    /**
-     * 重置
-     */
-    reset() {
-        this.node.color = cc.Color.WHITE;
-        let sprite = this.getComponent(cc.Sprite);
-        sprite.spriteFrame.getTexture().update({flipY: false});
     },
 });

@@ -1,4 +1,4 @@
-// Shader: 径向模糊
+// Shader: 雨水效果
 const renderEngine = cc.renderer.renderEngine;
 const renderer = renderEngine.renderer;
 

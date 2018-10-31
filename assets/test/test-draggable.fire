@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5640625,
-      "y": 0.5640625,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_quat": {
@@ -233,15 +233,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
+      "r": 0,
       "g": 255,
-      "b": 255,
+      "b": 10,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 200,
-      "height": 40
+      "width": 320,
+      "height": 61
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -288,11 +288,13 @@
     "_useOriginalSize": false,
     "_string": "拖动我试试",
     "_N$string": "拖动我试试",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_fontSize": 64,
+    "_lineHeight": 61.3,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "44352a96-9378-4d5c-b04e-0c507c3a6081"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -349,8 +351,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -202,
-      "y": -119,
+      "x": -4,
+      "y": 99,
       "z": 0
     },
     "_scale": {

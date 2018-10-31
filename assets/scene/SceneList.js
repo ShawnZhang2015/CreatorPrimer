@@ -1,4 +1,6 @@
 
+let Transition = require('../prefabs/Transition');
+
 const SCENE_INFO = [];
 cc.Class({
     extends: cc.Component,
@@ -20,7 +22,8 @@ cc.Class({
             let node = cc.instantiate(this.LIST_ITEM_PREFAB);
             let listItem = node.getComponent(componentName);
             node.on('click', (sender) => {
-                cc.director.loadScene(listItem.text);
+                //cc.director.loadScene(listItem.text);
+                Transition.instance.loadScene(listItem.text);
             });
             listItem.text = item.name;
             this.listView.content.addChild(node);

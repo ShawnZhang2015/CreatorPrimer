@@ -1,0 +1,58 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "cloud_open",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 1,
+  "sample": 20,
+  "speed": 1,
+  "wrapMode": "1",
+  "curveData": {
+    "props": {
+      "position": []
+    },
+    "paths": {
+      "left": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -598,
+                0
+              ]
+            },
+            {
+              "frame": 1,
+              "value": [
+                -2000,
+                0
+              ]
+            }
+          ]
+        }
+      },
+      "right": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                0
+              ]
+            },
+            {
+              "frame": 1,
+              "value": [
+                2000,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

@@ -90,7 +90,9 @@ cc.Class({
     },
 
     onDisable() {
-        cc.director.getPhysicsManager().enabled = false;
+        let physicsManager = cc.director.getPhysicsManager();
+        physicsManager.debugDrawFlags = 0;
+        physicsManager.enabled = false;
     }
 
 });

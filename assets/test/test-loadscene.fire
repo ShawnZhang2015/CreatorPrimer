@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.30479833604391143,
-      "y": 0.30479833604391143,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_quat": {
@@ -586,7 +586,7 @@
     },
     "_enabled": true,
     "scene": {
-      "__uuid__": "5ed4a79d-238b-4edc-ae75-ace0be40fcf6"
+      "__uuid__": "423f5732-b93c-484b-9f76-fa67690fe6e5"
     },
     "clickable": false,
     "_id": "a41M+d0lNAEZx1db9D+AAd"

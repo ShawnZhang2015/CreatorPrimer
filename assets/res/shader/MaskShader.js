@@ -21,10 +21,6 @@ const shader = {
 
     frag:
         `
-        #ifdef GL_ES
-        precision mediump float;
-        #endif
-
         uniform sampler2D u_texture;
         uniform float u_edge;
         varying vec2 uv0;
@@ -79,4 +75,5 @@ const shader = {
         }`,
 };
 
-module.exports = shader;
+let CustomMaterial = require('CustomMaterial');
+CustomMaterial.addShader(shader);

@@ -35,24 +35,28 @@ var CustomMaterial = (function (Material$$1) {
 		);
 
 		this.name = shaderName;
-		this._color = { r: 1, g: 1, b: 1, a: 1 };
+		
 		this._effect = new renderer.Effect(
-			[
-				mainTech
-			],
-			{},
+			[ mainTech ],
+            {},
 			defines,
-		);
+        );
+        this._texture = null;
+        this._color = { r: 1, g: 1, b: 1, a: 1 };
 
 		this._mainTech = mainTech;
-		this._texture = null;
 	}
 
-	if (Material$$1) CustomMaterial.__proto__ = Material$$1;
-	CustomMaterial.prototype = Object.create(Material$$1 && Material$$1.prototype);
-	CustomMaterial.prototype.constructor = CustomMaterial;
+	// if (Material$$1) CustomMaterial.__proto__ = Material$$1;
+	// CustomMaterial.prototype = Object.create(Material$$1 && Material$$1.prototype);
+    // CustomMaterial.prototype.constructor = CustomMaterial;
+    cc.js.extend(CustomMaterial, Material$$1);
 
-	var prototypeAccessors = { effect: { configurable: true }, texture: { configurable: true }, color: { configurable: true } };
+	var prototypeAccessors = { 
+        effect:  { configurable: true }, 
+        texture: { configurable: true }, 
+        color:   { configurable: true } 
+    };
 
 	prototypeAccessors.effect.get = function () {
 		return this._effect;
@@ -94,6 +98,11 @@ var CustomMaterial = (function (Material$$1) {
 	// 设置自定义参数的值
 	CustomMaterial.prototype.setParamValue = function (name, value) {
 		this._effect.setProperty(name, value);
+    };
+   
+    // 获取自定义参数的值
+    CustomMaterial.prototype.getParamValue = function (name) {
+		return this._effect.getProperty(name);
 	};
 
 	// 设置定义值
@@ -112,13 +121,46 @@ CustomMaterial.addShader = function(shader) {
         console.log("addShader - shader already exist: ", shader.name);
         return;
     }
-    cc.renderer._forward._programLib.define(shader.name, shader.vert, shader.frag, shader.defines);
-    g_shaders[shader.name] = shader;
-}
 
+    if (cc.renderer._forward) {
+        cc.renderer._forward._programLib.define(shader.name, shader.vert, shader.frag, shader.defines || []);
+        g_shaders[shader.name] = shader;
+    } else {
+        //在微信上初始时cc.renderer._forward不存在，需要等引擎初始化完毕才能使用
+        cc.game.once(cc.game.EVENT_ENGINE_INITED, function () {
+            cc.renderer._forward._programLib.define(shader.name, shader.vert, shader.frag, shader.defines || []);
+            g_shaders[shader.name] = shader;
+        });
+    }
+}
 //取Shader的定义
 CustomMaterial.getShader = function(name) {
     return g_shaders[name];
+};
+
+CustomMaterial.getShaderByIndex = function(index) {
+    let array = Object.values(g_shaders);
+    return array[index];
+};
+
+CustomMaterial.getAllName = function() {
+    let array = Object.keys(g_shaders);
+    let result = array.map((name, value) => {
+        return {name, value};
+    });
+    return result;
+};
+
+let g_shaderEnum = null;
+CustomMaterial.getShaderEnum = function() {
+    if (g_shaderEnum) {
+        return g_shaderEnum;
+    }
+    let array = Object.keys(g_shaders);
+    let obj = {};
+    array.forEach((name, index) => obj[name] = index);
+    g_shaderEnum = cc.Enum(obj);
+    return g_shaderEnum;
 }
 
 module.exports = CustomMaterial;

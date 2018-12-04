@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.276,
-      "y": 0.276,
+      "x": 0.27066666666666667,
+      "y": 0.27066666666666667,
       "z": 1
     },
     "_quat": {
@@ -669,7 +669,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -224,
+      "y": 374,
       "z": 0
     },
     "_scale": {
@@ -1181,7 +1181,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "RainShader",
+    "_N$program": 10,
     "_id": "c7uDIlTI5JKLKhXrXZ0mQJ"
   },
   {
@@ -1381,7 +1381,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "Water",
+    "_N$program": 12,
     "_id": "68JnpGFCVK55lyM5pqfWCL"
   },
   {
@@ -1580,7 +1580,7 @@
       "vert": "uniform mat4 viewProj;\n        attribute vec3 a_position;\n        attribute vec2 a_uv0;\n        varying vec2 uv0;\n        void main () {\n            vec4 pos = viewProj * vec4(a_position, 1);\n            gl_Position = pos;\n            uv0 = a_uv0;\n        }\n        ",
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }"
     },
-    "_N$shaderFile": "WaveShader",
+    "_N$program": 11,
     "_id": "baZonh6vxGm631gnJbW+fM"
   },
   {
@@ -1779,7 +1779,7 @@
       "vert": "uniform mat4 viewProj;\n        attribute vec3 a_position;\n        attribute vec2 a_uv0;\n        varying vec2 uv0;\n        void main () {\n            vec4 pos = viewProj * vec4(a_position, 1);\n            gl_Position = pos;\n            uv0 = a_uv0;\n        }\n        ",
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }"
     },
-    "_N$shaderFile": "MaskShader",
+    "_N$program": 5,
     "_id": "7fRPmro0ZI85+S4dmu5F5x"
   },
   {
@@ -1978,7 +1978,7 @@
       "vert": "uniform mat4 viewProj;\n        attribute vec3 a_position;\n        attribute vec2 a_uv0;\n        varying vec2 uv0;\n        void main () {\n            vec4 pos = viewProj * vec4(a_position, 1);\n            gl_Position = pos;\n            uv0 = a_uv0;\n        }\n        ",
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }"
     },
-    "_N$shaderFile": "WaveShader",
+    "_N$program": 13,
     "_id": "02q0YZAsZPDINN+bBtSxmZ"
   },
   {
@@ -2178,7 +2178,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "GaussBlurs",
+    "_N$program": 3,
     "_id": "1612ntHE5J8oxWGLbE3ELV"
   },
   {
@@ -2378,7 +2378,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "Mosaic",
+    "_N$program": 6,
     "_id": "32N/hVQ5pIDJRkrqF8oPoO"
   },
   {
@@ -2578,7 +2578,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "Glowing",
+    "_N$program": 4,
     "_id": "f0zFRPA/NFC4PfesK+0f3l"
   },
   {
@@ -2777,7 +2777,7 @@
       "vert": "uniform mat4 viewProj;\n        attribute vec3 a_position;\n        attribute vec2 a_uv0;\n        varying vec2 uv0;\n        void main () {\n            vec4 pos = viewProj * vec4(a_position, 1);\n            gl_Position = pos;\n            uv0 = a_uv0;\n        }\n        ",
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }"
     },
-    "_N$shaderFile": "Outline",
+    "_N$program": 7,
     "_id": "79KXn4P8RClp9owBaxt+aU"
   },
   {
@@ -2977,7 +2977,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "OverlayShader",
+    "_N$program": 8,
     "_id": "4cBKktyENF96s0WYwzu/Qi"
   },
   {
@@ -3177,7 +3177,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "RadialBlur",
+    "_N$program": 13,
     "_id": "0cxKeg56lCFpZsVcOYSUq0"
   },
   {
@@ -3376,7 +3376,7 @@
       "vert": "uniform mat4 viewProj;\n        attribute vec3 a_position;\n        attribute vec2 a_uv0;\n        varying vec2 uv0;\n        void main () {\n            vec4 pos = viewProj * vec4(a_position, 1);\n            gl_Position = pos;\n            uv0 = a_uv0;\n        }\n        ",
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }"
     },
-    "_N$shaderFile": "Outline",
+    "_N$program": 7,
     "_id": "4fvxk1751JOrLmhzsbga8q"
   },
   {
@@ -3576,7 +3576,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "Dissolve",
+    "_N$program": 0,
     "_id": "52qJYG97hK0Y4n7M2GEhsJ"
   },
   {
@@ -3776,7 +3776,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "Fluxay",
+    "_N$program": 1,
     "_id": "0aGtoYKc1D/ZfjMi4G2uel"
   },
   {
@@ -3976,7 +3976,7 @@
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }",
       "_iN$t": null
     },
-    "_N$shaderFile": "FluxaySuper",
+    "_N$program": 2,
     "_id": "d5+ut+WntHUa+tO7rVbMKV"
   },
   {
@@ -4175,7 +4175,7 @@
       "vert": "uniform mat4 viewProj;\n        attribute vec3 a_position;\n        attribute vec2 a_uv0;\n        varying vec2 uv0;\n        void main () {\n            vec4 pos = viewProj * vec4(a_position, 1);\n            gl_Position = pos;\n            uv0 = a_uv0;\n        }\n        ",
       "frag": "uniform sampler2D texture;\n    varying vec2 uv0;\n    uniform float bluramount;\n\n    vec4 draw(vec2 uv) {\n        return texture2D(texture, uv).rgba; \n    }\n\n    float grid(float var, float size) {\n        return floor(var*size)/size;\n    }\n\n    float rand(vec2 co){\n        return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453);\n    }\n\n    void mainImage( out vec4 fragColor, in vec2 uv0 )\n    {\n        vec2 uv = uv0.xy;\n        vec4 blurred_image = vec4(0.);\n        #define repeats 5.\n        for (float i = 0.; i < repeats; i++) { \n            vec2 q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i,uv.x+uv.y))+bluramount); \n            vec2 uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n            q = vec2(cos(degrees((i/repeats)*360.)),sin(degrees((i/repeats)*360.))) * (rand(vec2(i+2.,uv.x+uv.y+24.))+bluramount); \n            uv2 = uv+(q*bluramount);\n            blurred_image += draw(uv2)/2.;\n        }\n        blurred_image /= repeats;\n        fragColor = vec4(blurred_image);\n    }\n\n    void main()\n    {\n        mainImage(gl_FragColor, uv0.xy);\n    }"
     },
-    "_N$shaderFile": "Transfer",
+    "_N$program": 11,
     "_id": "80BI7fo3ZCu4y6REWrkH+X"
   },
   {

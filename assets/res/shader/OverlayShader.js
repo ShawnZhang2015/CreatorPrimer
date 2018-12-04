@@ -1,6 +1,6 @@
 // Shader: 纹理与颜色叠加
 
-var overlay = {
+var shader = {
     name: "overlay",
     defines:[],
     start(sprite) {
@@ -40,4 +40,5 @@ var overlay = {
         }`,
 }
 
-module.exports = overlay;
+let CustomMaterial = require('CustomMaterial');
+CustomMaterial.addShader(shader);

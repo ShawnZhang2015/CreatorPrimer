@@ -1,11 +1,39 @@
 
 let SoftKey = cc.Class({
     extends: cc.Component,
+    editor: {
+        executeInEditMode: true,
+    },
 
     properties: {
-        string: '',
+        string:  {
+            type: cc.String,
+            //default: '',
+            // notify() {
+            //     let node = this.node.getChildByName('Label');
+            //     let label = node.getComponent(cc.Label);
+            //     label.string = this.string;
+            // }
+            get() {
+                return this._label.string;
+            },
+
+            set(value) {
+                this._label.string = value;
+            }
+        },
         deleteKey: false,
         targets: [cc.Component],
+
+        _label: null,
+    },
+
+    onLoad() {
+        this._data = {name:'sfsf'};
+
+        cc.log('onLoad');
+        let node = this.node.getChildByName('Label');
+        this._label = node.getComponent(cc.Label);
     },
 
     start () {

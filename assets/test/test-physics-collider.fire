@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.46758876536481436,
-      "y": 0.46758876536481436,
+      "x": 0.26857702876498873,
+      "y": 0.26857702876498873,
       "z": 1
     },
     "_quat": {
@@ -85,19 +85,22 @@
       },
       {
         "__id__": 78
+      },
+      {
+        "__id__": 84
       }
     ],
     "_active": true,
     "_level": 0,
     "_components": [
       {
-        "__id__": 84
+        "__id__": 89
       },
       {
-        "__id__": 85
+        "__id__": 90
       },
       {
-        "__id__": 87
+        "__id__": 93
       }
     ],
     "_prefab": null,
@@ -2209,8 +2212,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -11,
-      "y": -114,
+      "x": 173,
+      "y": 75,
       "z": 0
     },
     "_scale": {
@@ -2320,8 +2323,8 @@
     "_enabled": true,
     "linearVelocity": {
       "__type__": "cc.Vec2",
-      "x": 50,
-      "y": 100
+      "x": 0,
+      "y": 200
     },
     "angularVelocity": 0,
     "_id": "21ltQ3TQBEqIGYsWPfVyAg"
@@ -2595,7 +2598,7 @@
     "step": 1,
     "_N$topToDown": true,
     "_N$downToTop": false,
-    "_N$leftToRight": false,
+    "_N$leftToRight": true,
     "_N$rightToLeft": false,
     "_N$score": 0,
     "_id": "fakymDKy5Klp2xTLE2w5z4"
@@ -2632,7 +2635,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 22.25,
+      "width": 44.49,
       "height": 40
     },
     "_anchorPoint": {
@@ -2678,8 +2681,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "0",
-    "_N$string": "0",
+    "_string": "10",
+    "_N$string": "10",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -2727,16 +2730,16 @@
       "__id__": 74
     },
     "_enabled": true,
-    "notificationName": "score-left",
+    "notificationName": "score-l   ",
     "label": {
       "__id__": 75
     },
-    "step": 1,
+    "step": 5,
     "_N$topToDown": true,
     "_N$downToTop": false,
     "_N$leftToRight": false,
     "_N$rightToLeft": false,
-    "_N$score": 0,
+    "_N$score": 10,
     "_id": "835N4hpsdJH6q/B1GMfB4e"
   },
   {
@@ -2921,6 +2924,168 @@
     "_id": "a4GvJr+5xPnpvFIAqjhlgu"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "ball",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 1,
+    "_components": [
+      {
+        "__id__": 85
+      },
+      {
+        "__id__": 86
+      },
+      {
+        "__id__": 87
+      },
+      {
+        "__id__": 88
+      }
+    ],
+    "_prefab": null,
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 68,
+      "height": 68
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 200,
+      "y": -56,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "_zIndex": 0,
+    "groupIndex": 0,
+    "_id": "52Nwuur2lFVI8ebn8JwSbu"
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 84
+    },
+    "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_spriteFrame": {
+      "__uuid__": "bc09c410-3796-4348-aab4-dc8750fec33f"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_state": 0,
+    "_atlas": {
+      "__uuid__": "1eda363f-6200-4822-b297-4bf308291d9d"
+    },
+    "_id": "bfinLgxCJB15difrs7DIgN"
+  },
+  {
+    "__type__": "cc.RigidBody",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 84
+    },
+    "_enabled": true,
+    "_type": 2,
+    "_allowSleep": true,
+    "_gravityScale": 1,
+    "_linearDamping": 0,
+    "_angularDamping": 0,
+    "_linearVelocity": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_angularVelocity": 0,
+    "_fixedRotation": false,
+    "enabledContactListener": false,
+    "bullet": true,
+    "_id": "e8VVnK06lDA7OCyptpl6vJ"
+  },
+  {
+    "__type__": "cc.PhysicsCircleCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 84
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_density": 1,
+    "_sensor": false,
+    "_friction": 0.2,
+    "_restitution": 0.5,
+    "body": null,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": -0.2
+    },
+    "_radius": 34,
+    "_id": "9dqy6YqHdDWKF0HAcpT5nb"
+  },
+  {
+    "__type__": "dfbd7x8QkhMGIN2Vda6mYnA",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 84
+    },
+    "_enabled": true,
+    "linearVelocity": {
+      "__type__": "cc.Vec2",
+      "x": 50,
+      "y": 100
+    },
+    "angularVelocity": 0,
+    "_id": "14Vgj1VtFDu4ciUF9cZIoH"
+  },
+  {
     "__type__": "cc.Canvas",
     "_name": "",
     "_objFlags": 0,
@@ -2964,7 +3129,10 @@
     "zoomScale": 1.2,
     "clickEvents": [
       {
-        "__id__": 86
+        "__id__": 91
+      },
+      {
+        "__id__": 92
       }
     ],
     "_N$interactable": true,
@@ -3004,6 +3172,15 @@
     "customEventData": ""
   },
   {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 84
+    },
+    "component": "PhysicsVelocity",
+    "handler": "force",
+    "customEventData": ""
+  },
+  {
     "__type__": "e8784mu5l9KLKS+n8blKNQb",
     "_name": "",
     "_objFlags": 0,
@@ -3012,12 +3189,12 @@
     },
     "_enabled": true,
     "active": true,
-    "aabb": true,
-    "pair": true,
-    "centerOfMass": true,
-    "joint": true,
-    "shape": true,
-    "mouseJoint": true,
+    "aabb": false,
+    "pair": false,
+    "centerOfMass": false,
+    "joint": false,
+    "shape": false,
+    "mouseJoint": false,
     "_id": "3cnoGwGxFAw7L5bfFCYT7P"
   }
 ]

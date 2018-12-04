@@ -1,14 +1,20 @@
 let CustomMaterial = require("CustomMaterial");
+let ShaderEnum = cc.Enum({
+});
 
-cc.Class({
+let ShaderHelper = cc.Class({
     extends: cc.Component,
+    editor: {
+        executeInEditMode: true,
+    },
 
     properties: {
         _shaderObject: null,
-        shaderFile: {
-            default: '',
-            notify() {
-                if (!this.shaderFile) {
+        program: {
+            type: ShaderEnum,
+            default: 0,
+            notify(oldValue) {
+                if (this.program === oldValue) {
                     return;
                 }
                 this.applyShader();
@@ -16,14 +22,24 @@ cc.Class({
         },
     },
 
+    __preload () {
+        let array = CustomMaterial.getAllName();
+        ShaderHelper.ShaderEnum = CustomMaterial.getShaderEnum();
+        cc.Class.Attr.setClassAttr(ShaderHelper, 'program', 'enumList', array);
+    },
+
     onLoad() {
         this.sprite = this.getComponent(cc.Sprite);
         this.applyShader();
     },
 
-    update() {
-        if (this._shaderObject.update) {
-            this._shaderObject.update(this.sprite, this.material);
+    update(dt) {
+        if (CC_EDITOR) {
+            return;
+        }
+
+        if (this._shaderObject && this._shaderObject.update) {
+            this._shaderObject.update(this.sprite, this.material, dt);
         }
     },
 
@@ -35,12 +51,7 @@ cc.Class({
             return;
         }
 
-        this._shaderObject = require(this.shaderFile);
-        if (!this._shaderObject) {
-            return;
-        }
-        
-        CustomMaterial.addShader(this._shaderObject);
+        this._shaderObject = CustomMaterial.getShaderByIndex(this.program);
         let sprite = this.sprite;
         let params = this._shaderObject.params;
         let defines = this._shaderObject.defines;

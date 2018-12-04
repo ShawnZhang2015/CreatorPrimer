@@ -63,4 +63,5 @@ var shader = {
     }`,
 }
 
-module.exports = shader;
+let CustomMaterial = require('CustomMaterial');
+CustomMaterial.addShader(shader);

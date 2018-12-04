@@ -15,7 +15,7 @@ const shader = {
     defines: [],
 
     start(sprite, material) {
-        material.setParamValue('iOffset', new cc.Vec2(0, 0.5));
+        material.setParamValue('iOffset', new cc.Vec2(0.2, 0.2));
         this._start = Date.now();
     },
 
@@ -52,4 +52,5 @@ const shader = {
         }`
 };
 
-module.exports = shader;
+let CustomMaterial = require('CustomMaterial');
+CustomMaterial.addShader(shader);

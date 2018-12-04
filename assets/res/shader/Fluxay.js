@@ -1,5 +1,6 @@
 const renderEngine = cc.renderer.renderEngine;
 const renderer = renderEngine.renderer;
+let CustomMaterial = require('CustomMaterial');
 
 const shader = {
     name: 'Fluxay',
@@ -60,4 +61,4 @@ const shader = {
         }`,
 };
 
-module.exports = shader;
+CustomMaterial.addShader(shader);

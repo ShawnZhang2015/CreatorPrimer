@@ -1,24 +1,33 @@
 const renderEngine = cc.renderer.renderEngine;
 const renderer = renderEngine.renderer;
+let CustomMaterial = require('CustomMaterial');
 
-const shader = {
+const shader = {    
     name: 'Dissolve',
     params: [
         { name: 'time', type: renderer.PARAM_FLOAT, defaultValue: 0 },
     ],
 
     start() {
-        this._start = Date.now();
+        this.time = 0;
+        this.flag = 1;
     },
 
-    update(sprite, material) {
-        const now = Date.now();
-        let time = ((now - this._start) / 1000) / 5;
-        if (time >= 1) {
-            time = 0;
-            this._start = now;
+    update(sprite, material, dt) {
+        dt /= 3;
+        if (this.flag) {
+            this.time += dt;    
+        } else {
+            this.time -= dt;  
         }
-        material.setParamValue('time', time);
+       
+        if (this.time >= 1.2) {
+            this.flag = 0;
+        } else if (this.time <= -0.2 ) {
+            this.flag = 1;
+        }
+
+        material.setParamValue('time', this.time);
     },
 
     defines:[],
@@ -44,7 +53,7 @@ varying vec2 uv0;
 void main()
 {
     vec4 c = color * texture2D(texture,uv0);
-    float height = c.r;
+    float height = c.g;
     if(height < time)
     {
         discard;
@@ -52,10 +61,11 @@ void main()
     if(height < time+0.04)
     {
         // 溶解颜色，可以自定义
-        c = vec4(.9,.6,0.3,c.a);
+        c = vec4(1, 0, 0, c.a);
     }
     gl_FragColor = c;
 }`,
 };
 
+CustomMaterial.addShader(shader);
 module.exports = shader;

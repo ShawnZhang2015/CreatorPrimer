@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3859375,
-      "y": 0.3859375,
+      "x": 0.35,
+      "y": 0.35,
       "z": 1
     },
     "_quat": {
@@ -247,8 +247,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -5,
+      "y": -7,
       "z": 0
     },
     "_scale": {
@@ -334,8 +334,8 @@
     "_right": 0,
     "_top": 0,
     "_bottom": 0,
-    "_verticalCenter": 0,
-    "_horizontalCenter": 0,
+    "_verticalCenter": -7,
+    "_horizontalCenter": -5,
     "_isAbsLeft": true,
     "_isAbsRight": true,
     "_isAbsTop": true,

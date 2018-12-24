@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3859375,
-      "y": 0.3859375,
+      "x": 0.4484130859375,
+      "y": 0.4484130859375,
       "z": 1
     },
     "_quat": {
@@ -301,7 +301,7 @@
     },
     "_miterLimit": 10,
     "_size": 400,
-    "_N$string": "http://weixin.qq.com/r/MEMLE5fEysq1rdNw9xYi",
+    "_N$string": "www.sian.com",
     "_N$backColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -316,7 +316,7 @@
       "b": 0,
       "a": 255
     },
-    "_N$margin": 10,
+    "_N$margin": 57.200000000000024,
     "_id": "ecl0mh7BZLh4fHBhtks8Za"
   },
   {

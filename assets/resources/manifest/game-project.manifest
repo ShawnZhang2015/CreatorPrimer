@@ -1,0 +1,7 @@
+{
+    "version": "0.1.1",
+    "packageUrl": "http://192.168.1.100/update",
+    "remoteManifestUrl": "http://192.168.1.100/update/game-project.manifest",
+    "remoteVersionUrl": "http://192.168.1.100/update/game-version.manifest",
+    "assets": {}
+}

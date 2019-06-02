@@ -4,12 +4,6 @@
 
 cc.Class({
     extends: cc.Component,
-    editor: CC_EDITOR && {
-        menu: 'my/SpriteIndex',
-        executeInEditMode: true,
-        requireComponent: cc.Sprite,
-    },
-
     properties: {
         spriteFrames: [cc.SpriteFrame],
 

@@ -1304,6 +1304,12 @@ let CQRCode = cc.Class({
         this.setContent();
     },
 
+    setString(customData, sender) {
+        if (sender.string) {
+            this.string = sender.string;
+        }
+    },
+
     setContent() {
         this.clear();
         //背景色
@@ -1337,6 +1343,10 @@ let CQRCode = cc.Class({
     },
 
     
+});
+
+cc.game.once(cc.game.EVENT_ENGINE_INITED, function () {
+    CQRCode._assembler = cc.Graphics._assembler;
 });
 
 cc.Class.Attr.setClassAttr(CQRCode, 'lineWidth', 'visible', false);

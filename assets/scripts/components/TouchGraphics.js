@@ -8,7 +8,7 @@ let TouchGraphics = cc.Class({
         _points: null,
     },
 
-    onLoad () {
+    onLoad() {
         this.node.on(cc.Node.EventType.TOUCH_START, this._onTouchStart, this);
         this.node.on(cc.Node.EventType.TOUCH_MOVE, this._onTouchMove, this);
         this.node.on(cc.Node.EventType.TOUCH_END, this._onTouchEnd, this);
@@ -69,6 +69,10 @@ let TouchGraphics = cc.Class({
         this.stroke();
         this.node.emit('draw-move', this);
     },
+});
+
+cc.game.once(cc.game.EVENT_ENGINE_INITED, function () {
+    TouchGraphics._assembler = cc.Graphics._assembler;
 });
 
 cc.Class.Attr.setClassAttr(TouchGraphics, 'miterLimit', 'visible', false);

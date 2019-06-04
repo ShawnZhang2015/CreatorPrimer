@@ -45,6 +45,7 @@ let Guide = cc.Class({
             type: cc.Mask.Type,
         },
 
+        pointer: cc.Node,
         animationTimes: 0,
     },
 
@@ -52,9 +53,15 @@ let Guide = cc.Class({
         window.guide = this;
         this._mask = this.getComponent(cc.Mask);
         this._mask.inverted = true;
+        //初始化指示器
+        this._pointer = this.pointer;
+        // this._pointer = cc.instantiate(this.pointerPrefab);
+        // this._pointer.parent = this.node;
+        // this._pointer.zIndex = 100;
+        // this._pointer.position = cc.v2(cc.winSize.width / 2 + this._pointer.width, -cc.winSize.height / 2)
     },
 
-    locateNode(root, value) {
+    locateNode(root, value, cb) {
         root = root instanceof cc.Node ? root : cc.find('Canvas');
         locator.locateNode(root, value, (error, node) => {
             if (error) {
@@ -63,6 +70,9 @@ let Guide = cc.Class({
             }
             cc.log('定位节点成功');
             this._focusNode(node);
+            if (cb) {
+                cb(node);
+            }
         });
     },
 
@@ -111,6 +121,12 @@ let Guide = cc.Class({
             //     this._mask._graphics.circle(p.x, p.y, Math.min(rect.height, rect.width) / 2);
             // }
             // this._mask._graphics.fill();
+            this.scheduleOnce(() => {
+                let duration = this._pointer.position.sub(rect.center).mag() / 1000;
+                let moveTo = cc.moveTo(duration, rect.center);
+                this._pointer.runAction(moveTo);
+            });
+            
         } else {
             this._times = 0;
             this._rect = rect;
@@ -169,12 +185,24 @@ let Guide = cc.Class({
     },
 
     playRecordTouchNode() {
+        this.stopRecordTouchNode();
+        //this._touchNodes.pop();
         async.eachLimit(this._touchNodes, 1, (nodePath, cb) => {
-            this.locateNode(null, nodePath);
-            this.scheduleOnce(() => cb(), 1);
+            this.locateNode(null, nodePath, (node) => {
+                let touchEnd = () => {
+                    cb();
+                    node.off(cc.Node.EventType.TOUCH_END, touchEnd, this);
+                };
+                node.on(cc.Node.EventType.TOUCH_END, touchEnd, this); 
+            });
         }, () => {
             cc.log('任务完成');
+            this.node.destroy();
         });
+    },
+
+    beginGuide() {
+
     }
 });
 

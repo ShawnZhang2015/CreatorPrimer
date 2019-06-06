@@ -140,18 +140,11 @@ let Guide = cc.Class({
             if (this._targetGuide) {
                 this._targetGuide.points = points;
             }
-            // if (this.type === cc.Mask.Type.RECT) {
-            //     this._mask._graphics.rect(p.x, p.y, rect.width, rect.height);
-            // } else {
-            //     this._mask._graphics.circle(p.x, p.y, Math.min(rect.height, rect.width) / 2);
-            // }
-            // this._mask._graphics.fill();
-            this.scheduleOnce(() => {
-                let duration = this._pointer.position.sub(rect.center).mag() / 1000;
-                let moveTo = cc.moveTo(duration, rect.center);
-                this._pointer.runAction(moveTo);
-            });
             
+            let duration = this._pointer.position.sub(rect.center).mag() / 1000;
+            let delay = cc.delayTime(0.5);
+            let moveTo = cc.moveTo(duration, rect.center);
+            this._pointer.runAction(cc.sequence(delay, moveTo));
         } else {
             this._times = 0;
             this._rect = rect;

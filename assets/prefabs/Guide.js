@@ -22,9 +22,7 @@ function getRectRotatePoints(rect, angle, pt) {
 }
 
 let Guide = cc.Class({
-    editor: {
-        requireComponent: cc.Mask,
-    },
+    
     extends: cc.Component,
 
     properties: {
@@ -45,20 +43,43 @@ let Guide = cc.Class({
             type: cc.Mask.Type,
         },
 
-        pointer: cc.Node,
+        pointerPrefab: cc.Prefab,
         animationTimes: 0,
     },
 
     onLoad() {
         window.guide = this;
-        this._mask = this.getComponent(cc.Mask);
+        let node = this.node.getChildByName('mask');
+        if (!node) {
+           return;
+        }
+        //获取遮罩组件 
+        this._mask = node.getComponent(cc.Mask);
         this._mask.inverted = true;
         //初始化指示器
-        this._pointer = this.pointer;
-        // this._pointer = cc.instantiate(this.pointerPrefab);
-        // this._pointer.parent = this.node;
-        // this._pointer.zIndex = 100;
-        // this._pointer.position = cc.v2(cc.winSize.width / 2 + this._pointer.width, -cc.winSize.height / 2)
+        this._pointer = cc.instantiate(this.pointerPrefab);
+        this._pointer.parent = this.node;
+        this._pointer.zIndex = 100;
+        this._pointer.position = cc.v2(cc.winSize.width / 2 + this._pointer.width, -cc.winSize.height / 2);
+    },
+
+    start() {
+        this.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            if (!this._targetGuide) {
+                this.node._touchListener.setSwallowTouches(false);
+                return;
+            }
+
+            let p = event.getLocation();
+            //let rect = this._targetGuide.node.getBoundingBoxToWorld();
+            // if (!rect.contain(p)) {
+            if (cc.Intersection.pointInPolygon(p, this._targetGuide.points)) {
+                this.node._touchListener.setSwallowTouches(false);
+            } else {
+                cc.log('未命中目标节点')
+            }
+            // }
+        }, this);
     },
 
     locateNode(root, value, cb) {
@@ -115,6 +136,10 @@ let Guide = cc.Class({
             rect.y = p.y;
             let points = this.getNodePoints(rect, node.rotation, rect.center);
             this.fillPoints(points);
+            //保存节点多边形描点
+            if (this._targetGuide) {
+                this._targetGuide.points = points;
+            }
             // if (this.type === cc.Mask.Type.RECT) {
             //     this._mask._graphics.rect(p.x, p.y, rect.width, rect.height);
             // } else {
@@ -162,15 +187,19 @@ let Guide = cc.Class({
      * 记得触摸节点
      */
     startRecordTouchNode() {
+        if (this._dispatchEvent) {
+            return;
+        }
+
         this._dispatchEvent =  cc.Node.prototype.dispatchEvent;
         let self = this;
         this._touchNodes = [];
         cc.Node.prototype.dispatchEvent = function(event) {
             self._dispatchEvent.call(this, event);  
-            if (event.type === cc.Node.EventType.TOUCH_END) {
-                let nodePath = self.getNodeFullPath(this);
-                self._touchNodes.push(nodePath);
-                cc.log(event.type, ':', nodePath);
+            if (event.currentTarget !== self.node && event.type === cc.Node.EventType.TOUCH_END) {
+                let path = self.getNodeFullPath(this);
+                self._touchNodes.push({node:this, path, points: null});
+                cc.log(event.type, ':', path);
             }
         }
     },
@@ -181,15 +210,18 @@ let Guide = cc.Class({
     stopRecordTouchNode() {
         if (this._dispatchEvent) {
             cc.Node.prototype.dispatchEvent = this._dispatchEvent;
+            this._dispatchEvent = null;
         }
     },
 
     playRecordTouchNode() {
         this.stopRecordTouchNode();
-        //this._touchNodes.pop();
-        async.eachLimit(this._touchNodes, 1, (nodePath, cb) => {
-            this.locateNode(null, nodePath, (node) => {
+        async.eachLimit(this._touchNodes, 1, (item, cb) => {
+            this._targetGuide = item;
+            this.locateNode(null, item.path, (node) => {
                 let touchEnd = () => {
+                    this._currentNode = null;
+                    cc.log('引导点击节点：', node.name);
                     cb();
                     node.off(cc.Node.EventType.TOUCH_END, touchEnd, this);
                 };

@@ -32,7 +32,7 @@ let TouchGraphics = cc.Class({
     _onTouchEnd(event) {
         let location = event.getLocation();
         this._drawGraphics(location);
-        this.node.emit('draw-end', this);
+        this.node.emit('draw-end', this, location);
     },
 
     getTrailPoints() {

@@ -42,9 +42,9 @@ let TouchGraphics = cc.Class({
     _drawGraphics(location) {
         let point = this.node.convertToNodeSpaceAR(location);
         let rect = this.node.getBoundingBox();
-        rect.origin = cc.v2(0, 0);
+        //rect.origin = cc.v2(0, 0);
 
-        if (!rect.contains(this.node.convertToNodeSpace(location))) {
+        if (!rect.contains(this.node.convertToNodeSpaceAR(location))) {
             return;
         }
       
